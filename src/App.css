@@ -8,9 +8,41 @@
     'header header'
     'nav nav'
     'sidebar main'
-    'footer footer'
+    'footer footer';
+    color:darkslategrey;
+    font-family: 'EB Garamond', serif;
+
+    
 }
 
 header{
-  background: rgb(176, 215, 193);
+  background: #48D1CC;
+  border: #67AAF9;
+  grid-area: header;
+ font-family: 'Monoton', cursive;
+  font-size:150%;
+  padding-bottom:15px;
+
+}
+
+nav{
+  background:#B8F3FF;
+  border: blueviolet;
+  grid-area:nav;
+}
+section{
+  background: rgb(116, 244, 244);
+  border:pink;
+  grid-area:sidebar;
+}
+.main{
+   background: #affffb;
+  border: rgb(36, 145, 145);
+  grid-area: main;
+}
+footer{
+  background:#8AC6D0;
+  border:rgb(183, 233, 183) ;
+  grid-area:footer;
+  color:black;
 }

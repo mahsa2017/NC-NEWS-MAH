@@ -1,0 +1,12 @@
+li{
+  list-style-type: none;
+  text-align: left;
+  padding:10px;
+}
+.main a {
+  color:darkslategrey;
+  text-decoration: black;
+}
+#separator{
+  background-color: aqua;
+}

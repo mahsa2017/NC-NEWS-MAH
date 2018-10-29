@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import "../App.css";
+import './Nav.css';
+import Home from './Home';
+import Users from './Users';
+
 import * as api from '../api';
 
 class Nav extends Component {
@@ -12,12 +16,14 @@ class Nav extends Component {
     const {topics} = this.state
     return (
       <nav>
-        <Link to="/">HOME</Link>   {" | "}
+        <Link to="/"><h2>Home</h2></Link> 
       {topics.map(({slug,title,_id})=>{
         return <Link key={_id} to={`/topic/${slug}`}>
-          {title}   {" | "}
+        {" | "}  <h2>{title}</h2>  
         </Link>
       })}
+        {" | "}
+        <Link to="/users"><h2>Users</h2></Link>
       </nav>
     );
   }

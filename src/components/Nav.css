@@ -1,0 +1,14 @@
+
+nav{
+  background:#20B2AA;
+  border: blueviolet;
+  grid-area:nav;
+  font-family: 'Abril Fatface', cursive;
+}
+a{
+  color:#B8F3FF;
+  text-decoration: none;
+}
+h2{
+  display:inline;
+}
