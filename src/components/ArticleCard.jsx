@@ -17,22 +17,25 @@ const ArticleCard = props => {
   } = props.article;
 
   return <div className="article-card-container">
-    Posted By: {created_by.username} {`On `}  
-    {created_at
-      .split("")
-      .slice(0, 10)}
-    <Link to={`/topics/${belongs_to}`}>
-      <span>{`#${belongs_to}`}</span>
-    </Link>
-    <Link to={`/articles/${_id}`} key={_id}>
-      <span><h2>{title}</h2></span>
-      {/* if we are on article single page we pass full body as props to article-card */}
-      {props.body? <p>{body}</p>:<p>{body.substr(0, 200) + ` ...`}</p>} 
-     
-      <span>{comment_count} Comments</span>
-    </Link>
-    <Vote votes={votes} id={_id} comment_count={comment_count}/>
-  </div>;
+      <span>
+        <h2>{title}</h2>
+      </span>
+      Posted By: {created_by.username} {`On `}
+      {created_at.split("").slice(0, 10)}
+      <Link className="articleCardLinks" to={`/topics/${belongs_to}`}>
+        <span>{`#${belongs_to}`}</span>
+      </Link>
+    <Link className="articleCardLinks" to={`/articles/${_id}`} key={_id}>
+        {/* if we are on article single page we pass full body as props to article-card */}
+        {props.body ? <p>{body}</p> : <p>{`${body
+            .split(" ")
+            .slice(0, 15)
+            .join(" ")} ... `}</p>}
+
+        <span>{comment_count} Comments</span>
+      </Link>
+      <Vote votes={votes} id={_id} comment_count={comment_count} />
+    </div>;
 };
 
 ArticleCard.propTypes = {

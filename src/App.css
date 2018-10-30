@@ -1,48 +1,58 @@
 .App {
   text-align: center;
-  display:grid;
-  height:100vh;
+  display: grid;
+  height: 100vh;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 20% 1fr 10fr 1fr;
-  grid-template-areas: 
-    'header header'
-    'nav nav'
-    'sidebar main'
-    'footer footer';
-    color:darkslategrey;
-    font-family: 'EB Garamond', serif;
-
-    
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "sidebar main"
+    "footer footer";
+  color: darkslategrey;
+  font-family: "EB Garamond", serif;
 }
 
-header{
-  background: #48D1CC;
-  border: #67AAF9;
+header {
+  background: #48d1cc;
+  border: #67aaf9;
   grid-area: header;
- font-family: 'Monoton', cursive;
-  font-size:150%;
-  padding-bottom:15px;
-
+  font-family: "Monoton", cursive;
+  font-size: 150%;
+  padding-bottom: 15px;
 }
 
-nav{
-  background:#B8F3FF;
+nav {
+  background: #b8f3ff;
   border: blueviolet;
-  grid-area:nav;
+  grid-area: nav;
 }
-section{
+section {
   background: rgb(116, 244, 244);
-  border:pink;
-  grid-area:sidebar;
+  border: pink;
+  grid-area: sidebar;
 }
-.main{
-   background: #affffb;
+.main {
+  background: #affffb;
   border: rgb(36, 145, 145);
   grid-area: main;
 }
-footer{
-  background:#8AC6D0;
-  border:rgb(183, 233, 183) ;
-  grid-area:footer;
-  color:black;
+footer {
+  background: #8ac6d0;
+  border: rgb(183, 233, 183);
+  grid-area: footer;
+  color: black;
+}
+
+#postAnArticleLink {
+color:darkcyan;
+font-size: 20px;
+}
+#postAnArticleLink:hover{
+color:rgb(7, 82, 82);
+font-size: 25px;
+}
+nav a:hover {
+color:rgb(11, 93, 103);
+font-size: large;
 }

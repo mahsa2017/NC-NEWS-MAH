@@ -12,7 +12,7 @@ class Articles extends Component {
   render() {
     const { articles } = this.state;
     return <main>
-        ARTICLES
+        {/* ARTICLES */}
         <p>{this.state.articles.length} articles available </p>
         {articles.map(article => {
           return <ArticleCard key={article._id} article={article} id={article._id} />;

@@ -37,7 +37,6 @@ export const getCommentsByArticleId = async id => {
   const {data} = await axios.get(
     `${BASE_URL}/articles/${id}/comments`
   );
-  console.log(data,"commentssssss")
   return data.comments;
 }
 
@@ -47,3 +46,12 @@ export const updateCommentVote = async (id, direction) => {
   );
   return data.comment;
 };
+export const login = async username=>{
+  const {data} = await axios.get(`${BASE_URL}/users/${username}`)
+  return data;
+}
+export const postArticleByTopic = async (topic, articleToPost) => {
+         const { data } = axios.post(`${BASE_URL}/topics/${topic}/articles`, articleToPost);
+         console.log(data,"newwarticle")
+  return data.article.$__._doc;
+       };

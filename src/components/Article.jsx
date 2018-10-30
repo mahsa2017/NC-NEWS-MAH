@@ -9,7 +9,7 @@ class Article extends Component {
   }
   render() {
     return <div>
-        Single Article
+        {/* Single Article */}
         {this.state.article._id && <ArticleCard article={this.state.article} body={this.state.article.body} id={this.props.article_id} />}
         {this.state.article._id && <Comments id={this.props.article_id} />}
       </div>;

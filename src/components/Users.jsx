@@ -16,7 +16,7 @@ class Users extends Component {
               <li className="grid-item">
           Name: <h2>{name}</h2> <br/>
           User Name: <h2>{username}</h2> 
-        {/* {avatar_url? <img src={`${avatar_url}`} alt="" />:"No image found"} */} //ask!!!!
+        {/* {avatar_url? <img src={`${avatar_url}`} alt="" />:"No image found"} */} 
           </li>
           )
         })}

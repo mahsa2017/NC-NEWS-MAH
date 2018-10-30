@@ -1,0 +1,13 @@
+#link{
+  color:#B8F3FF;
+  text-decoration: none;
+}
+#link a:hover{
+   background-color: rgb(81, 177, 176);
+}
+.post-article-form{
+  display:flex;
+  width:40%;
+ flex-wrap: wrap;
+ align-items: center;
+}
