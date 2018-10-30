@@ -30,7 +30,7 @@ const ArticleCard = props => {
       <span>{comment_count} Comments</span>
     </Link>
     {votes} votes
-    <Vote votes={votes} _id={_id} />
+    <Vote votes={votes} id={_id} />
   </div>;
 };
 

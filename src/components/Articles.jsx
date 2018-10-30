@@ -13,7 +13,7 @@ class Articles extends Component {
     const { articles } = this.state;
     return <main>
         ARTICLES
-        <p>Number of articles: {this.state.articles.length}</p>
+        <p>{this.state.articles.length} articles available </p>
         {articles.map(article => {
           return <ArticleCard key={article._id} article={article} id={article._id} />;
         })}
@@ -40,7 +40,7 @@ class Articles extends Component {
 }
 
 Articles.propTypes = {
-
+topic:PropTypes.string
 };
 
 export default Articles;

@@ -1,33 +1,46 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import PropTypes from "prop-types";
-import './Vote.css'
+import "./Vote.css";
 
 class Vote extends Component {
   state = {
-    vote: 0
+    voteVariable: 0
   };
   render() {
-    const {votes,id} = this.props;
-    const {vote} = this.state;
-    return <div>
-        <button className="updown" onClick={() => this.voteChanger(id, "up")} disabled={vote === 1}>
+    const { votes, id } = this.props;
+    const { voteVariable } = this.state;
+    return (
+      <div>
+        <button
+          className="updown"
+          onClick={() => this.voteChanger(id, "up")}
+          disabled={voteVariable === 1}
+        >
           ⇧
         </button>
-         <span>Votes: {votes + vote}</span>
-      <button className="updown" onClick={() => this.voteChanger(id, "down")} disabled={vote === -1}>
+        <span> Votes: {votes + voteVariable} </span>
+        <button
+          className="updown"
+          onClick={() => this.voteChanger(id, "down")}
+          disabled={voteVariable === -1}
+        >
           ⇩
         </button>
-      </div>;
+      </div>
+    );
   }
   voteChanger = (id, direction) => {
-    api.updateArticleVote(id, direction)
+    api.updateArticleVote(id, direction).then(console.log);
     this.setState({
-      vote: direction === "up" ? this.state.vote + 1 : this.state.vote - 1
+      voteVariable:
+        direction === "up"
+          ? this.state.voteVariable + 1
+          : this.state.voteVariable - 1
     });
   };
 }
 Vote.propTypes = {
-  vote: PropTypes.number
+  voteVariable: PropTypes.number
 };
 export default Vote;

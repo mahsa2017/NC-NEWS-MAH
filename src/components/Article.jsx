@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import ArticleCard from './ArticleCard'
+// import Comments from './Comments'
 class Article extends Component {
   state = {
     article:{}
@@ -10,7 +11,6 @@ class Article extends Component {
     return (
       <div>
         Single Article
-      
         {this.state.article._id && <ArticleCard article={this.state.article} id={this.props.article_id} /> }
         {/* <Comments /> */}
       </div>
