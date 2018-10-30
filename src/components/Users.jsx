@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api'
+import  './Users.css';
 
 class Users extends Component {
   state={
@@ -9,13 +10,13 @@ class Users extends Component {
   render() {
     const {users} = this.state
     return (
-      <div>
+      <div className="grid-container">
         {users.map(({_id,username,name,avatar_url})=>{
           return(
-          <li>
+              <li className="grid-item">
           Name: <h2>{name}</h2> <br/>
-         User Name: <h4>{username}</h4> 
-        {/* {avatar_url? <img src={`${avatar_url}`} alt="" />:"No image found"} */}
+          User Name: <h2>{username}</h2> 
+        {/* {avatar_url? <img src={`${avatar_url}`} alt="" />:"No image found"} */} //ask!!!!
           </li>
           )
         })}

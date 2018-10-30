@@ -5,7 +5,7 @@ import Articles from './Articles'
 const Topic = ({topic})=> {
   return (
     <div>
-      {/* <Articles topic={topic} /> */}
+      <Articles topic={topic} />
     </div>
   );
 };

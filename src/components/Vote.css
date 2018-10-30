@@ -1,0 +1,9 @@
+.updown{
+  width:40px;
+  height:26px;
+  border-radius: 20%;
+  margin:2px;
+}
+.updown:hover{
+  background-color: aqua;
+}
