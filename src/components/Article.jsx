@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import ArticleCard from './ArticleCard'
-// import Comments from './Comments'
+import Comments from './Comments'
 class Article extends Component {
   state = {
     article:{}
   }
   render() {
-    return (
-      <div>
+    return <div>
         Single Article
-        {this.state.article._id && <ArticleCard article={this.state.article} id={this.props.article_id} /> }
-        {/* <Comments /> */}
-      </div>
-    );
+        {this.state.article._id && <ArticleCard article={this.state.article} body={this.state.article.body} id={this.props.article_id} />}
+        {this.state.article._id && <Comments id={this.props.article_id} />}
+      </div>;
   }
   componentDidMount(){
     this.fetchArticleById()
@@ -35,7 +33,7 @@ class Article extends Component {
 }
 
 Article.propTypes = {
-  article_id: PropTypes.objectOf(PropTypes.string.isRequired)
+  // article_id: PropTypes.objectOf(PropTypes.string.isRequired)
 };
 
 export default Article;

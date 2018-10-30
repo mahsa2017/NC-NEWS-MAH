@@ -11,12 +11,12 @@ export const getArticles = async topic => {
     ? `${BASE_URL}/topics/${topic}/articles`
     : `${BASE_URL}/articles`;
   const { data } = await axios.get(URL);
-  console.log(data);
+  // console.log(data);
   return data.articles;
 };
 
 export const getArticleById = async id => {
-  console.log(id, "<<<");
+  // console.log(id, "<<<");
   const { data } = await axios.get(`${BASE_URL}/articles/${id}`);
   return data.article;
 };
@@ -31,4 +31,19 @@ export const updateArticleVote = async (id, direction) => {
     `${BASE_URL}/articles/${id}?vote=${direction}`
   );
   return data.article;
+};
+
+export const getCommentsByArticleId = async id => {
+  const {data} = await axios.get(
+    `${BASE_URL}/articles/${id}/comments`
+  );
+  console.log(data,"commentssssss")
+  return data.comments;
+}
+
+export const updateCommentVote = async (id, direction) => {
+  const { data } = await axios.patch(
+    `${BASE_URL}/comments/${id}?vote=${direction}`
+  );
+  return data.comment;
 };

@@ -40,7 +40,7 @@ class Articles extends Component {
 }
 
 Articles.propTypes = {
-topic:PropTypes.string
+// topic:PropTypes.string
 };
 
 export default Articles;

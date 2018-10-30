@@ -6,7 +6,7 @@ import "./Vote.css";
 class Vote extends Component {
   state = {
     voteVariable: 0
-  };
+  }
   render() {
     const { votes, id } = this.props;
     const { voteVariable } = this.state;
@@ -28,19 +28,30 @@ class Vote extends Component {
           ⇩
         </button>
       </div>
-    );
+    )
   }
   voteChanger = (id, direction) => {
-    api.updateArticleVote(id, direction).then(console.log);
+    if(!this.props.comment_count)
+     {api.updateCommentVote(id,direction)
+      this.setState({
+        voteVariable:
+          direction === "up"
+            ? this.state.voteVariable + 1
+            : this.state.voteVariable - 1
+      })
+    }
+    else{
+        api.updateArticleVote(id, direction)
     this.setState({
       voteVariable:
         direction === "up"
           ? this.state.voteVariable + 1
           : this.state.voteVariable - 1
-    });
-  };
+    })
+    }
+  }
 }
 Vote.propTypes = {
-  voteVariable: PropTypes.number
+  // voteVariable: PropTypes.number
 };
 export default Vote;

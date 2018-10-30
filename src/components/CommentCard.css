@@ -1,0 +1,18 @@
+.comment-card-container {
+  display: grid;
+  margin: 15px auto;
+  border: 2px solid rgb(41, 176, 151);
+  border-radius:15px;
+  text-align: left;
+  padding:10px;
+  opacity: .8;
+}
+
+a{
+  color:black;
+}
+a:hover{
+  background-color: rgb(55, 213, 210);
+  border-radius: 20px;
+  padding: 10px;
+}

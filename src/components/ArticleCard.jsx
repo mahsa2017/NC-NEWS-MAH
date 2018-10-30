@@ -17,7 +17,7 @@ const ArticleCard = props => {
   } = props.article;
 
   return <div className="article-card-container">
-    Posted By: {created_by.username} On 
+    Posted By: {created_by.username} {`On `}  
     {created_at
       .split("")
       .slice(0, 10)}
@@ -26,22 +26,23 @@ const ArticleCard = props => {
     </Link>
     <Link to={`/articles/${_id}`} key={_id}>
       <span><h2>{title}</h2></span>
-      <p>{body.substr(0, 200) + ` ...`}</p>
+      {/* if we are on article single page we pass full body as props to article-card */}
+      {props.body? <p>{body}</p>:<p>{body.substr(0, 200) + ` ...`}</p>} 
+     
       <span>{comment_count} Comments</span>
     </Link>
-    {votes} votes
-    <Vote votes={votes} id={_id} />
+    <Vote votes={votes} id={_id} comment_count={comment_count}/>
   </div>;
 };
 
 ArticleCard.propTypes = {
-  article: PropTypes.object.isRequired,
-  votes: PropTypes.objectOf(PropTypes.number.isRequired),
-  title: PropTypes.objectOf(PropTypes.string.isRequired),
-  created_by: PropTypes.objectOf(PropTypes.string.isRequired),
-  belongs_to: PropTypes.objectOf(PropTypes.string.isRequired),
-  created_at: PropTypes.objectOf(PropTypes.string.isRequired),
-  _id: PropTypes.objectOf(PropTypes.string.isRequired)
+  // article: PropTypes.object.isRequired,
+  // votes: PropTypes.objectOf(PropTypes.number.isRequired),
+  // title: PropTypes.objectOf(PropTypes.string.isRequired),
+  // created_by: PropTypes.objectOf(PropTypes.string.isRequired),
+  // belongs_to: PropTypes.objectOf(PropTypes.string.isRequired),
+  // created_at: PropTypes.objectOf(PropTypes.string.isRequired),
+  // _id: PropTypes.objectOf(PropTypes.string.isRequired)
 };
 
 export default ArticleCard;
