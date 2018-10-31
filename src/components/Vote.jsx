@@ -31,7 +31,7 @@ class Vote extends Component {
     )
   }
   voteChanger = (id, direction) => {
-    if(!this.props.comment_count)
+    if(!this.props.comment_count) //if its voting on comment, in commentCard <vote
      {api.updateCommentVote(id,direction)
       this.setState({
         voteVariable:
@@ -41,7 +41,7 @@ class Vote extends Component {
       })
     }
     else{
-        api.updateArticleVote(id, direction)
+    api.updateArticleVote(id, direction)
     this.setState({
       voteVariable:
         direction === "up"

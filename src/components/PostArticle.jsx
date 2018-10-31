@@ -41,7 +41,7 @@ class PostArticle extends Component {
             style={{ width: "521px", height: "182px" }}
             rows="10"
             onChange={this.handleChange}
-            defaultValue="write ..."
+            placeholder="write your article ..."
           />
           <button type="submit">Add Article</button>
         </form>
@@ -67,7 +67,7 @@ class PostArticle extends Component {
         created_by: this.props.user._id
       })
       .then(article => {
-        navigate(`/articles/${article._id}`);
+        navigate(`/articles/${article._id}`)
       });
   };
 }

@@ -51,7 +51,18 @@ export const login = async username=>{
   return data;
 }
 export const postArticleByTopic = async (topic, articleToPost) => {
-         const { data } = axios.post(`${BASE_URL}/topics/${topic}/articles`, articleToPost);
-         console.log(data,"newwarticle")
-  return data.article.$__._doc;
-       };
+  // console.log(topic,"TTTT")
+  const { data } = await axios.post(`${BASE_URL}/topics/${topic}/articles`, articleToPost);
+  //  console.log(data,"newwarticle")
+  return data.article;
+   };
+
+export const postCommentByArticleId = async(article_id, commentToPost) => {
+  const { data } = await axios.post(`${BASE_URL}/articles/${article_id}/comments`, commentToPost)
+  return data.comment;
+}
+
+export const deleteCommentByCommentId = async(comment_id) =>{
+  const {data} = await axios.delete(`${BASE_URL}/comments/${comment_id}`)
+  return data.comment;
+}

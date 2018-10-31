@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Link} from '@reach/router'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "@reach/router";
 import "./ArticleCard.css";
 import Vote from "./Vote";
 
@@ -15,8 +15,9 @@ const ArticleCard = props => {
     body,
     comment_count
   } = props.article;
-
-  return <div className="article-card-container">
+  // console.log(created_by, '<<<<');
+  return (
+    <div className="article-card-container">
       <span>
         <h2>{title}</h2>
       </span>
@@ -25,17 +26,22 @@ const ArticleCard = props => {
       <Link className="articleCardLinks" to={`/topics/${belongs_to}`}>
         <span>{`#${belongs_to}`}</span>
       </Link>
-    <Link className="articleCardLinks" to={`/articles/${_id}`} key={_id}>
+      <Link className="articleCardLinks" to={`/articles/${_id}`} key={_id}>
         {/* if we are on article single page we pass full body as props to article-card */}
-        {props.body ? <p>{body}</p> : <p>{`${body
+        {props.body ? (
+          <p>{body}</p>
+        ) : (
+          <p>{`${body
             .split(" ")
             .slice(0, 15)
-            .join(" ")} ... `}</p>}
+            .join(" ")} ... `}</p>
+        )}
 
         <span>{comment_count} Comments</span>
       </Link>
       <Vote votes={votes} id={_id} comment_count={comment_count} />
-    </div>;
+    </div>
+  );
 };
 
 ArticleCard.propTypes = {
@@ -49,4 +55,3 @@ ArticleCard.propTypes = {
 };
 
 export default ArticleCard;
-

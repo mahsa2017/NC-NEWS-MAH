@@ -24,6 +24,10 @@ class App extends Component {
         </header>
         <Nav />
         <section>
+          {this.state.user.username?
+          <h2>{`Hi ${this.state.user.name.split(' ')[0]}! Welcome Back`}
+          </h2>:
+          "Welcome!"} <br/>
           <Link id="postAnArticleLink" to="/postArticle">
             &#x2795; Post an article
           </Link>
@@ -32,19 +36,18 @@ class App extends Component {
           <Router className="main">
             <Home path="/" />
             <Articles path="/topics/:topic" />
-            <Article path="/articles/:article_id" />
+            <Article user={this.state.user} path="/articles/:article_id" />
             <Users path="/users" />
             <User path="/users/:user_id" />
             <PostArticle user={this.state.user} path="/postArticle" />
           </Router>
         </Login>
-        <footer> NC-NEWS Front End Project Made By Mahsa </footer>
+        <footer> NC-NEWS Front End Project By Mahsa </footer>
       </div>;
   }
   login = username => {
     api.login(username)
     .then(user => {
-      // console.log(user,"<<<<")
       this.setState({
         user
       });

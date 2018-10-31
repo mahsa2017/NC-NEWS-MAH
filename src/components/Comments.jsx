@@ -12,7 +12,7 @@ class Comments extends Component {
     return (
       <div>
         {comments.map(comment=>{
-          return <CommentCard comment={comment}/>
+          return <CommentCard user={this.props.user} id={this.props.id} comment={comment}/>
         })}
       </div>
     );

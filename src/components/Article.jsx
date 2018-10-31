@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import * as api from '../api';
 import ArticleCard from './ArticleCard'
 import Comments from './Comments'
+import PostArticle from './PostArticle';
+import PostComment from "./PostComment";
+
 class Article extends Component {
   state = {
     article:{}
@@ -11,7 +14,9 @@ class Article extends Component {
     return <div>
         {/* Single Article */}
         {this.state.article._id && <ArticleCard article={this.state.article} body={this.state.article.body} id={this.props.article_id} />}
-        {this.state.article._id && <Comments id={this.props.article_id} />}
+        {this.state.article._id && <h3>Add a Comment:</h3>}
+        <PostComment user={this.props.user} id={this.props.article_id} />
+        {this.state.article._id && <Comments user={this.props.user} id={this.props.article_id} />}
       </div>;
   }
   componentDidMount(){
