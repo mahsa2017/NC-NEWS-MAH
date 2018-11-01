@@ -31,6 +31,8 @@ class YourArticles extends Component {
   };
 }
 
-YourArticles.propTypes = {};
+YourArticles.propTypes = {
+  user: PropTypes.string
+};
 
 export default YourArticles;

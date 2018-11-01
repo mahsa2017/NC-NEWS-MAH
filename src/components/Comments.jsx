@@ -6,40 +6,25 @@ import CommentCard from './CommentCard';
 class Comments extends Component {
   state = {
     comments: [],
-    body: ""
+    body: "",
+    bodyEmpty:false
   };
   render() {
+    const {bodyEmpty} = this.state
     const { comments } = this.state;
-    return (
-      <div>
-        <h3 style={{ textAlign: "left", marginLeft: "70px" }}>What do you think? </h3>
+    return <div>
+        <h3 style={{ textAlign: "left", marginLeft: "70px" }}>
+          What do you think?{" "}
+        </h3>
         <form action="" onSubmit={this.handleSubmit}>
-          <textarea
-            className="textInputs"
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-            style={{ width: "876px", height: "59px" }}
-            placeholder="what do you think? ..."
-            onChange={this.handleChange}
-            value={this.state.body}
-          /> <br />
+          <textarea className="textInputs" name="" id="" cols="30" rows="10" style={{ width: "876px", height: "59px" }} placeholder="what do you think? ..." onChange={this.handleChange} value={this.state.body} /> <br />
+          {bodyEmpty ? <h3> ❌ can't post an empty comment ❌ </h3> : ""}
           <button type="submit">send</button>
         </form>
-       {comments.map(comment => {
-          return (
-            <CommentCard
-              key={comment._id}
-              user={this.props.user}
-              id={this.props.id}
-              comment={comment}
-              deleteComment={this.deleteComment}
-            />
-          );
+        {comments.map(comment => {
+          return <CommentCard key={comment._id} user={this.props.user} id={this.props.id} comment={comment} deleteComment={this.deleteComment} />;
         })}
-      </div>
-    );
+      </div>;
   }
 
   componentDidMount() {
@@ -75,8 +60,10 @@ class Comments extends Component {
   }
 
   postComment = () => {
+    const {body} = this.state;
+    if(!body) this.setState({bodyEmpty:true});
     api.postCommentByArticleId(this.props.id, {
-        body: this.state.body,
+        body,
         created_by: this.props.user._id
       })
       .then(newcomment => {

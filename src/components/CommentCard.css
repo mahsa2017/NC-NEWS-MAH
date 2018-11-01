@@ -1,7 +1,6 @@
 .comment-card-container {
   width:90%;
   float:right;
-  /* margin-right:20px; */
   text-align:left;
   display: grid;
   margin: 15px auto;

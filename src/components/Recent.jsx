@@ -37,6 +37,8 @@ class Recent extends Component {
   };
 }
 
-Recent.propTypes = {};
+Recent.propTypes = {
+  user: PropTypes.string
+};
 
 export default Recent;

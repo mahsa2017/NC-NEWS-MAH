@@ -3,58 +3,63 @@ import PropTypes from 'prop-types';
 import * as api from '../api';
 import ArticleCard from './ArticleCard'
 import Comments from './Comments';
-import {navigate} from '@reach/router'
+import { navigate } from '@reach/router'
 
 
 class Article extends Component {
   state = {
-    article:{},
-    isLoading:true,
-    msg:""
+    article: {},
+    isLoading: true,
+    msg: ""
   }
   render() {
-    return this.state.isLoading?<div className="loader" />:<div>
-        {/* Single Article */}
-        {this.state.article._id && <ArticleCard article={this.state.article} body={this.state.article.body} id={this.props.article_id} />}
-        {this.props.user.username === this.state.article.created_by.username ?
-        <button onClick={() => this.removeArticle(this.state.article._id)}>
+    const { isLoading, article, msg } = this.state;
+    const { article_id, user } = this.props;
+    return isLoading ? <div className="loader" /> : <div>
+      {/* Single Article */}
+      {article._id && <ArticleCard article={article} body={article.body} id={article_id} />}
+      {user.username === article.created_by.username ?
+        <button onClick={() => this.removeArticle(article._id)}>
           Delete
       </button> : ""}
-        {this.state.article._id && <Comments user={this.props.user} id={this.props.article_id} />}
-        {this.state.msg !== "" && <h1>{this.state.msg}</h1>}
-      </div>;
+      {article._id && <Comments user={user} id={article_id} />}
+      {msg !== "" && <h1>{msg}</h1>}
+    </div>;
   }
-  componentDidMount(){
+  componentDidMount() {
     this.fetchArticleById()
   }
   componentDidUpdate = prevProps => {
-    if (prevProps.article_id !== this.props.article_id) {
+    const { article_id } = this.props;
+    if (prevProps.article_id !== article_id) {
       this.fetchArticleById()
     }
   };
-  
+
   fetchArticleById = () => {
-    api.getArticleById(this.props.article_id)
-    .then(article => {
-      this.setState({ 
-        article,isLoading:false });
-    });
+    const { article_id } = this.props;
+    api.getArticleById(article_id)
+      .then(article => {
+        this.setState({
+          article, isLoading: false
+        });
+      });
   }
   removeArticle = (id) => {
     api.deleteArticleByArticleId(id)
-    .then(article=>{
-      this.setState({
-      msg:"Article successfully Deleted!"
-    })
-    })
-    .then(article => {
+      .then(article => {
+        this.setState({
+          msg: "Article successfully Deleted!"
+        })
+      })
+      .then(article => {
         navigate(`/articles/yours`);
       });
   }
 }
 
 Article.propTypes = {
- user:PropTypes.object.isRequired
+  user: PropTypes.object.isRequired
 };
 
 export default Article;

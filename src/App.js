@@ -19,7 +19,8 @@ import * as api from "./api";
 
 class App extends Component {
   state = {
-    user: {}
+    user: {},
+    guest:false
   };
   render() {
     return <div className="App">
@@ -54,7 +55,7 @@ class App extends Component {
             🔥 Top 10 Commented Articles
           </Link>
         </section>
-        <Login user={this.state.user} login={this.login}>
+        <Login user={this.state.user} login={this.login} guest={this.state.guest}> 
           <Router className="main">
             <Home path="/" />
             <Articles path="/topics/:topic" />
@@ -77,7 +78,10 @@ class App extends Component {
       this.setState({
         user
       });
-    });
+    })
+    .catch(err => {
+      this.setState({guest:true}) 
+    })
   };
 }
 

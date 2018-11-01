@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import * as api from '../api';
 import './Articles.css'
 import ArticleCard from './ArticleCard';
-import { Link } from '@reach/router'
 
 class Articles extends Component {
 
@@ -13,10 +12,10 @@ class Articles extends Component {
   }
 
   render() {
-    const { articles } = this.state;
-    return this.state.isLoading ? <div className="loader" /> : <main>
+    const { articles,isLoading } = this.state;
+    return isLoading ? <div className="loader" /> : <main>
         {/* ARTICLES */}
-        <p>{this.state.articles.length} articles available </p>
+        <p>{articles.length} articles available </p>
         {articles.map(article => {
           return <ArticleCard key={article._id} article={article} id={article._id} />;
         })}
@@ -27,12 +26,14 @@ class Articles extends Component {
     this.fetchArticles();
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.topic !== this.props.topic) {
+    const { topic } = this.props;
+    if (prevProps.topic !== topic) {
       this.fetchArticles();
     }
   }
   fetchArticles = () => {
-    api.getArticles(this.props.topic)
+    const{topic} = this.props;
+    api.getArticles(topic)
       .then(
         articles => {
           this.setState({
@@ -45,7 +46,7 @@ class Articles extends Component {
 }
 
 Articles.propTypes = {
-  // topic:PropTypes.string
+  topic:PropTypes.string
 };
 
 export default Articles;

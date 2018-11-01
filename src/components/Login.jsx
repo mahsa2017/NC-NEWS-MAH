@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import "./Login.css";
 class Login extends Component {
   state = {
-    username: ""
+    username: "",
+    inputEmpty:false
   };
   render() {
 
@@ -14,6 +15,13 @@ class Login extends Component {
           <form action="" onSubmit={this.handleSubmit} className="inputButton">
             <input className="textInputs" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
             <button type="submit">Login</button>
+            {this.state.inputEmpty ? <h3 style={{ color: "white" }}>
+                ⛔ Can't login without username!⛔
+              </h3> : ""}
+            {this.props.guest ? <h3 style={{ color: "white" }}>
+                {" "}
+                🚫 You entered Wrong Username!🚫
+              </h3> : ""}
           </form>
         </div>
       </div>;
@@ -25,6 +33,8 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    const {username} = this.state;
+    if (!username) this.setState({inputEmpty:true});
     this.props.login(this.state.username);
     this.setState({
       username: ""

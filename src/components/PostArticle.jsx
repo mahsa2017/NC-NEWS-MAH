@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Link } from "@reach/router";
 import "./PostArticle.css";
 import * as api from "../api";
 import { navigate } from "@reach/router";
+import PropTypes from "prop-types";
 
 class PostArticle extends Component {
   state = {
     topic: "",
     title: "",
-    body: ""
+    body: "",
+    bodyEmpty:false,
+    topicEmpty:false
   };
   render() {
     return <div>
@@ -20,7 +21,6 @@ class PostArticle extends Component {
             <option value="football">Football</option>
             <option value="cooking">Cooking</option>
           </select>
-
           <label htmlFor="title">Title: </label>
           <input className="textInputs" type="text" name="title" id="title" onChange={this.handleChange} />
           {/* <br/>
@@ -29,6 +29,11 @@ class PostArticle extends Component {
           <textarea className="textInputs" name="" id="body" cols="30" style={{ width: "521px", height: "182px" }} rows="10" onChange={this.handleChange} placeholder="write your article ..." />
           <button type="submit">Add Article</button>
         </form>
+
+        {this.state.bodyEmpty ? <h2>
+            {" "}
+            ❌ can't post an empty article ❌
+          </h2> : ""}
       </div>;
   }
   handleChange = e => {
@@ -43,18 +48,24 @@ class PostArticle extends Component {
   };
 
   postArticle = () => {
-    api
+    const { title, body} =this.state;
+    if (!body) this.setState({ bodyEmpty:true})
+    else{
+      api
       .postArticleByTopic(this.state.topic, {
-        title: this.state.title,
-        body: this.state.body,
+        title,
+        body,
         created_by: this.props.user._id
       })
       .then(article => {
         navigate(`/articles/${article._id}`);
       });
+    }
   };
 }
 
-PostArticle.propTypes = {};
+PostArticle.propTypes = {
+  user:PropTypes.string.isRequired
+};
 
 export default PostArticle;

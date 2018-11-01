@@ -38,6 +38,8 @@ class MostPopular extends Component {
   };
 }
 
-MostPopular.propTypes = {};
+MostPopular.propTypes = {
+  user:PropTypes.string
+};
 
 export default MostPopular;

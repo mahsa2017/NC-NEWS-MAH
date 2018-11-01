@@ -40,7 +40,7 @@ const ArticleCard = props => {
 
 ArticleCard.propTypes = {
  article:PropTypes.object.isRequired,
- body:PropTypes.string.isRequired,
+ body:PropTypes.string,
  id:PropTypes.string.isRequired
 };
 
