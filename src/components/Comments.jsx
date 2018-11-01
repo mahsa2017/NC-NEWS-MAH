@@ -22,11 +22,11 @@ class Comments extends Component {
     this.fetchComments()
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.id) {
-      this.fetchComments();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.id !== this.props.id) {
+  //     this.fetchComments();
+  //   }
+  // }
 
   fetchComments=() =>{
     api.getCommentsByArticleId(this.props.id)

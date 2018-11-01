@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import "./PostArticle.css";
 import * as api from "../api";
-import { navigate } from "@reach/router/lib/history";
+import { navigate } from "@reach/router";
 
 class PostArticle extends Component {
   state = {
@@ -67,13 +67,11 @@ class PostArticle extends Component {
         created_by: this.props.user._id
       })
       .then(article => {
-        navigate(`/articles/${article._id}`)
+        navigate(`/articles/${article._id}`);
       });
   };
 }
 
-PostArticle.propTypes = {
-
-};
+PostArticle.propTypes = {};
 
 export default PostArticle;

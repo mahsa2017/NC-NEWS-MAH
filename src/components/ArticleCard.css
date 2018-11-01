@@ -7,16 +7,22 @@
   padding:10px;
   opacity: .8;
 }
-a{
+/* a{
   color:black;
-}
-.articleCardLinks a:hover{
-  background-color: rgb(55, 213, 210);
+} */
+.articleCardLinks:hover{
+  /* background-color: rgb(144, 179, 232); */
   border-radius: 10px;
-  padding: 10px;
+  text-decoration: underline
+  /* padding: 5px; */
 }
 p{
   text-indent:1%;
   font-size:20px;
   margin-top:-1px;
+}
+#artCTop:hover{
+  color:black;
+  font-size:24px;
+  font-family: 'Courier New', Courier, monospace;
 }

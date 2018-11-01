@@ -9,6 +9,10 @@ import User from "./components/User";
 import Article from "./components/Article";
 import Articles from "./components/Articles";
 import Login from "./components/Login";
+import YourArticles from "./components/YourArticles";
+import Recent from "./components/Recent";
+import MostPopular from "./components/MostPopular";
+import MostCommented from "./components/MostCommented";
 import PostArticle from './components/PostArticle'
 import * as api from "./api";
 
@@ -24,18 +28,40 @@ class App extends Component {
         </header>
         <Nav />
         <section>
-          {this.state.user.username?
-          <h2>{`Hi ${this.state.user.name.split(' ')[0]}! Welcome Back`}
-          </h2>:
-          "Welcome!"} <br/>
-          <Link id="postAnArticleLink" to="/postArticle">
+          {this.state.user.username ? <h2>
+              {`Hi ${this.state.user.name.split(" ")[0]}! Welcome Back`}
+            </h2> : <h3>"Welcome!"</h3>
+            } <br />
+          {this.state.user.username ? <button
+              onClick={() => this.setState({ user: {} })}
+            >
+              Log Out
+            </button> : ""}
+          <br />
+          <Link className="sideBarLinks" to="/postArticle">
             &#x2795; Post an article
+          </Link> <br />
+          <Link className="sideBarLinks" to="/articles/yours">
+            ✍ Your Articles
+          </Link> <br />
+          <Link className="sideBarLinks" to="/articles/recent">
+            &#9203; Recent Articles
+          </Link> <br />
+          <Link className="sideBarLinks" to="/articles/popular">
+            😍 Top 10 Popular Articles
+          </Link> <br/>
+          <Link className="sideBarLinks" to="/articles/commented">
+            🔥 Top 10 Commented Articles
           </Link>
         </section>
         <Login user={this.state.user} login={this.login}>
           <Router className="main">
             <Home path="/" />
             <Articles path="/topics/:topic" />
+            <YourArticles user={this.state.user} path="/articles/yours" />
+            <Recent user={this.state.user} path="/articles/recent" />
+            <MostPopular user={this.state.user} path="/articles/popular" />
+            <MostCommented user={this.state.user} path="/articles/commented" />
             <Article user={this.state.user} path="/articles/:article_id" />
             <Users path="/users" />
             <User path="/users/:user_id" />

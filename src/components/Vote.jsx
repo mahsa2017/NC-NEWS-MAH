@@ -10,25 +10,15 @@ class Vote extends Component {
   render() {
     const { votes, id } = this.props;
     const { voteVariable } = this.state;
-    return (
-      <div>
-        <button
-          className="updown"
-          onClick={() => this.voteChanger(id, "up")}
-          disabled={voteVariable === 1}
-        >
-          ⇧
+    return <div>
+        <button className="updown" onClick={() => this.voteChanger(id, "up")} disabled={voteVariable === 1}>
+          👍
         </button>
         <span> Votes: {votes + voteVariable} </span>
-        <button
-          className="updown"
-          onClick={() => this.voteChanger(id, "down")}
-          disabled={voteVariable === -1}
-        >
-          ⇩
+        <button className="updown" onClick={() => this.voteChanger(id, "down")} disabled={voteVariable === -1}>
+          👎
         </button>
-      </div>
-    )
+      </div>;
   }
   voteChanger = (id, direction) => {
     if(!this.props.comment_count) //if its voting on comment, in commentCard <vote

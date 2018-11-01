@@ -6,12 +6,15 @@ import ArticleCard from './ArticleCard';
 import { Link } from '@reach/router'
 
 class Articles extends Component {
+
   state = {
-    articles: []
+    articles: [],
+    isLoading: true
   }
+
   render() {
     const { articles } = this.state;
-    return <main>
+    return this.state.isLoading ? <div className="loader" /> : <main>
         {/* ARTICLES */}
         <p>{this.state.articles.length} articles available </p>
         {articles.map(article => {
@@ -19,6 +22,7 @@ class Articles extends Component {
         })}
       </main>;
   }
+
   componentDidMount() {
     this.fetchArticles();
   }
@@ -32,6 +36,7 @@ class Articles extends Component {
       .then(
         articles => {
           this.setState({
+            isLoading:false,
             articles
           })
         }
@@ -40,7 +45,7 @@ class Articles extends Component {
 }
 
 Articles.propTypes = {
-// topic:PropTypes.string
+  // topic:PropTypes.string
 };
 
 export default Articles;

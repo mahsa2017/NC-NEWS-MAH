@@ -19,7 +19,7 @@ class PostComment extends Component {
             style={{ width: "876px", height: "59px" }}
             placeholder="what do you think? ..."
             onChange={this.handleChange}
-          />
+          /> <br/>
           <button type="submit">send</button>
         </form>
       </div>
