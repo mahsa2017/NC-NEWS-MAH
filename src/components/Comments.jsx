@@ -4,39 +4,88 @@ import * as api from '../api'
 import CommentCard from './CommentCard';
 
 class Comments extends Component {
-  state={
-    comments:[]
-  }
+  state = {
+    comments: [],
+    body: ""
+  };
   render() {
-    const{comments} = this.state
+    const { comments } = this.state;
     return (
       <div>
-        {comments.map(comment=>{
-          return <CommentCard user={this.props.user} id={this.props.id} comment={comment}/>
+        <h3 style={{ textAlign: "left", marginLeft: "70px" }}>What do you think? </h3>
+        <form action="" onSubmit={this.handleSubmit}>
+          <textarea
+            className="textInputs"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            style={{ width: "876px", height: "59px" }}
+            placeholder="what do you think? ..."
+            onChange={this.handleChange}
+            value={this.state.body}
+          /> <br />
+          <button type="submit">send</button>
+        </form>
+       {comments.map(comment => {
+          return (
+            <CommentCard
+              key={comment._id}
+              user={this.props.user}
+              id={this.props.id}
+              comment={comment}
+              deleteComment={this.deleteComment}
+            />
+          );
         })}
       </div>
     );
   }
 
-  componentDidMount(){
-    this.fetchComments()
+  componentDidMount() {
+    this.fetchComments();
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.id !== this.props.id) {
-  //     this.fetchComments();
-  //   }
-  // }
-
-  fetchComments=() =>{
+  fetchComments = () => {
     api.getCommentsByArticleId(this.props.id)
-    .then(comments=>{
+    .then(comments => {
       this.setState({
         comments
+      });
+    });
+  };
+  handleChange = e => {
+    this.setState({ body: e.target.value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.postComment();
+  };
+
+  deleteComment = (id) => {
+    api.deleteCommentByCommentId(id)
+      .then(removedComment => {
+        const remainedComments = this.state.comments
+        .filter(comment => comment._id !== removedComment._id);
+        this.setState({
+          comments: remainedComments
+        }
+        )
       })
-    })
   }
 
+  postComment = () => {
+    api.postCommentByArticleId(this.props.id, {
+        body: this.state.body,
+        created_by: this.props.user._id
+      })
+      .then(newcomment => {
+        this.setState(state => {
+          state.body=""
+          return {comments:[newcomment, ...state.comments]}
+        })
+      });
+  };
 }
 
 Comments.propTypes = {

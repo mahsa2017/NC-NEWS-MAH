@@ -7,17 +7,14 @@ class YourArticles extends Component {
   state = { articles: [],isLoading:true };
   render() {
     const { articles } = this.state;
-    return ( this.state.isLoading ? <div className="loader"/>:
-      <main>
+    return this.state.isLoading ? <div className="loader" /> : <main>
         {/* YOUR ARTICLES */}
-        <p>{this.state.articles.length} articles available </p>
+        
+      <h1>Your Articles</h1><span style={{ fontWeight: "30px", lineHeight:0}}>You wrote {this.state.articles.length} articles 👏 </span>
         {articles.map(article => {
-          return (
-            <ArticleCard key={article._id} article={article} id={article._id} />
-          );
+          return <ArticleCard key={article._id} article={article} id={article._id} />;
         })}
-      </main>
-    );
+      </main>;
   }
 
   componentDidMount() {

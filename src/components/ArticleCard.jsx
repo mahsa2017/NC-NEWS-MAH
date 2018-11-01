@@ -39,7 +39,9 @@ const ArticleCard = props => {
 };
 
 ArticleCard.propTypes = {
- 
+ article:PropTypes.object.isRequired,
+ body:PropTypes.string.isRequired,
+ id:PropTypes.string.isRequired
 };
 
 export default ArticleCard;

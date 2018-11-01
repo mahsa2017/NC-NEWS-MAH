@@ -9,6 +9,7 @@ class MostPopular extends Component {
     const { articles } = this.state;
     return this.state.isLoading ? <div className="loader" /> : <main>
         {/* MostPopular ARTICLES */}
+      <h1>Popular Articles</h1>
         <p>{this.state.articles.length} articles available </p>
         {articles.map(article => {
           return <ArticleCard key={article._id} article={article} id={article._id} />;

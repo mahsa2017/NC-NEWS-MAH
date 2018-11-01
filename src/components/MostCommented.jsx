@@ -12,6 +12,7 @@ class MostCommented extends Component {
     ) : (
       <main>
         {/* MostCommented ARTICLES */}
+          <h1>Most Commented Articles</h1>
         <p>{this.state.articles.length} articles available </p>
         {articles.map(article => {
           return (

@@ -10,6 +10,7 @@ class Recent extends Component {
     return (this.state.isLoading?<div className="loader"/>:
       <main>
         {/* Recent ARTICLES */}
+         <h1>Recent Articles</h1>
         <p>{this.state.articles.length} articles available </p>
         {articles.map(article => {
           return (
@@ -31,7 +32,6 @@ class Recent extends Component {
         const Recent = articles.filter(article =>
         article.created_at
           .slice(0, 4) == thisyear);
-        // console.log(Recent)
         this.setState({ articles: Recent, isLoading:false });
       })
   };

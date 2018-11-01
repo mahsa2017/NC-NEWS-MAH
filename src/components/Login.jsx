@@ -9,22 +9,14 @@ class Login extends Component {
 
     //this.props.user first time it renders is an empty object which is truthy,so we pass username to make sure is not empty and if so, return children of router
     if (this.props.user.username) return this.props.children;
-    return (
-      <div className="main">
+    return <div className="main">
         <div id="login">
           <form action="" onSubmit={this.handleSubmit} className="inputButton">
-            <input
-              type="text"
-              name="username"
-              id="username"
-              onChange={this.handleChange}
-            />{" "}
-            <br />
+            <input className="textInputs" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
             <button type="submit">Login</button>
           </form>
         </div>
-      </div>
-    );
+      </div>;
   }
   handleChange = e => {
     this.setState({

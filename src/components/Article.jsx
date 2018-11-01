@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import ArticleCard from './ArticleCard'
-import Comments from './Comments'
-import PostArticle from './PostArticle';
-import PostComment from "./PostComment";
+import Comments from './Comments';
+import {navigate} from '@reach/router'
+
 
 class Article extends Component {
   state = {
     article:{},
-    isLoading:true
+    isLoading:true,
+    msg:""
   }
   render() {
     return this.state.isLoading?<div className="loader" />:<div>
         {/* Single Article */}
         {this.state.article._id && <ArticleCard article={this.state.article} body={this.state.article.body} id={this.props.article_id} />}
-      {this.state.article._id && <h3 style={{ textAlign: "left", marginLeft:"70px" }}>What do you think? </h3>}
-        <PostComment user={this.props.user} id={this.props.article_id} />
+        {this.props.user.username === this.state.article.created_by.username ?
+        <button onClick={() => this.removeArticle(this.state.article._id)}>
+          Delete
+      </button> : ""}
         {this.state.article._id && <Comments user={this.props.user} id={this.props.article_id} />}
+        {this.state.msg !== "" && <h1>{this.state.msg}</h1>}
       </div>;
   }
   componentDidMount(){
@@ -36,10 +40,21 @@ class Article extends Component {
         article,isLoading:false });
     });
   }
+  removeArticle = (id) => {
+    api.deleteArticleByArticleId(id)
+    .then(article=>{
+      this.setState({
+      msg:"Article successfully Deleted!"
+    })
+    })
+    .then(article => {
+        navigate(`/articles/yours`);
+      });
+  }
 }
 
 Article.propTypes = {
-  // article_id: PropTypes.objectOf(PropTypes.string.isRequired)
+ user:PropTypes.object.isRequired
 };
 
 export default Article;

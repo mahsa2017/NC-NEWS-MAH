@@ -12,13 +12,8 @@ class PostArticle extends Component {
     body: ""
   };
   render() {
-    return (
-      <div>
-        <form
-          className="post-article-form"
-          action=""
-          onSubmit={this.handleSubmit}
-        >
+    return <div>
+        <form className="post-article-form" action="" onSubmit={this.handleSubmit}>
           <select name="topicSelection" id="topic" onChange={this.handleChange}>
             <option value="">Choose Topic</option>
             <option value="coding">Coding</option>
@@ -27,26 +22,14 @@ class PostArticle extends Component {
           </select>
 
           <label htmlFor="title">Title: </label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            onChange={this.handleChange}
-          />
-          <label htmlFor="body">Body: </label>
-          <textarea
-            name=""
-            id="body"
-            cols="30"
-            style={{ width: "521px", height: "182px" }}
-            rows="10"
-            onChange={this.handleChange}
-            placeholder="write your article ..."
-          />
+          <input className="textInputs" type="text" name="title" id="title" onChange={this.handleChange} />
+          {/* <br/>
+          <label htmlFor="body">Body: </label> */}
+          <br />
+          <textarea className="textInputs" name="" id="body" cols="30" style={{ width: "521px", height: "182px" }} rows="10" onChange={this.handleChange} placeholder="write your article ..." />
           <button type="submit">Add Article</button>
         </form>
-      </div>
-    );
+      </div>;
   }
   handleChange = e => {
     const { id, value } = e.target;

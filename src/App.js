@@ -29,9 +29,9 @@ class App extends Component {
         <Nav />
         <section>
           {this.state.user.username ? <h2>
-              {`Hi ${this.state.user.name.split(" ")[0]}! Welcome Back`}
-            </h2> : <h3>"Welcome!"</h3>
-            } <br />
+              {`Hi ${this.state.user.name.split(" ")[0]}! `}
+        </h2> : <span style={{ fontSize: "25px" }}>🙋 Welcome!</span>
+            } 
           {this.state.user.username ? <button
               onClick={() => this.setState({ user: {} })}
             >
