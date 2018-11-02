@@ -8,7 +8,7 @@ class Login extends Component {
   };
   render() {
     const {guest,user} = this.props;
-    const {inputEmpty,username} =this.state;
+    const {inputEmpty} =this.state;
     //this.props.user first time it renders is an empty object which is truthy,so we pass username to make sure is not empty and if so, return children of router
     if (user.username) return this.props.children;
     return <div className="main">
