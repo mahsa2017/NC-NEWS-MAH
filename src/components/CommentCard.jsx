@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CommentCard.css'
 import Vote from './Vote'
+import Moment from "react-moment";
 
 const CommentCard = props => {
   const {
@@ -14,12 +15,18 @@ const CommentCard = props => {
   const {user} = props
 
   return <div className="comment-card-container">
-    <span>{created_by.username} on {created_at.split("").slice(0, 10)} said: <h3>{body}</h3></span> 
+      <span>
+        {created_by.username} <Moment fromNow>{created_at}</Moment> said: <h3
+        >
+          {body}
+        </h3>
+      </span>
       <Vote votes={votes} id={_id} />
-      {user.username === props.comment.created_by.username?
-      <button onClick={()=>props.deleteComment(props.comment._id)}>
-       Delete
-      </button>:""}
+      {user.username === props.comment.created_by.username ? <button
+          onClick={() => props.deleteComment(props.comment._id)}
+        >
+          Delete
+        </button> : ""}
     </div>;
 };
 

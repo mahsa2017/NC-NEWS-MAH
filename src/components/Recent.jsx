@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as api from '../api';
 import ArticleCard from './ArticleCard'
 
+
 class Recent extends Component {
   state = { articles: [],isLoading:true };
   render() {
@@ -29,10 +30,10 @@ class Recent extends Component {
     api.getArticles()
       .then(articles => {
         const thisyear = new Date().getFullYear();
-        console.log(this.year,"thisyear!!!")
+        // console.log(this.year,"thisyear!!!")
         const Recent = articles.filter(article =>
         article.created_at
-          .slice(0, 4) == thisyear);
+          .slice(0, 4) == thisyear).sort((a,b)=>a-b);
         this.setState({ articles: Recent, isLoading:false });
       })
   };

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import "./ArticleCard.css";
 import Vote from "./Vote";
+import Moment from "react-moment";
 
 const ArticleCard = props => {
   const {
@@ -20,8 +21,8 @@ const ArticleCard = props => {
       <span>
         <h2>{title}</h2>
       </span>
-      Posted By: {created_by.username} {`On `}
-      {created_at.split("").slice(0, 10)}
+      <i>posted by:   {created_by.username}</i>
+     <Moment fromNow>{created_at}</Moment>
       <Link className="articleCardLinks" id="artCTop" to={`/topics/${belongs_to}`}>
         <span>{`#${belongs_to}`}</span>
       </Link>
