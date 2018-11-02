@@ -14,7 +14,7 @@ class Login extends Component {
     return <div className="main">
         <div id="login">
           <form action="" onSubmit={this.handleSubmit} className="inputButton">
-            <input className="textInputs" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
+            <input className="textInputs" placeholder="jessjelly" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
             <button type="submit">Login</button>
             {inputEmpty ? <h3 style={{ color: "white" }}>
             <span role="img" aria-label="sheep">⛔</span> Can't login without username!
