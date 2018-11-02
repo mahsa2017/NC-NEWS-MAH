@@ -65,7 +65,7 @@ class PostArticle extends Component {
 }
 
 PostArticle.propTypes = {
-  user:PropTypes.string.isRequired
+  user:PropTypes.object.isRequired
 };
 
 export default PostArticle;

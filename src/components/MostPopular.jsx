@@ -39,7 +39,7 @@ class MostPopular extends Component {
 }
 
 MostPopular.propTypes = {
-  user:PropTypes.string
+  user:PropTypes.object
 };
 
 export default MostPopular;

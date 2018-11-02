@@ -28,7 +28,8 @@ class Recent extends Component {
   fetchArticles = () => {
     api.getArticles()
       .then(articles => {
-        const thisyear = new Date().getFullYear()
+        const thisyear = new Date().getFullYear();
+        console.log(this.year,"thisyear!!!")
         const Recent = articles.filter(article =>
         article.created_at
           .slice(0, 4) == thisyear);
@@ -38,7 +39,7 @@ class Recent extends Component {
 }
 
 Recent.propTypes = {
-  user: PropTypes.string
+  user: PropTypes.object
 };
 
 export default Recent;

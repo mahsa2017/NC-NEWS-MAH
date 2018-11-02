@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Articles from './Articles';
 const Home = props => {
   return (
@@ -9,8 +8,5 @@ const Home = props => {
   );
 };
 
-Home.propTypes = {
-  
-};
 
 export default Home;

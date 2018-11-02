@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import { Router, Link } from "@reach/router";
 import Home from "./components/Home";
-import Topic from "./components/Topic";
 import Nav from "./components/Nav";
 import Users from "./components/Users";
-import User from "./components/User";
 import Article from "./components/Article";
 import Articles from "./components/Articles";
 import Login from "./components/Login";
@@ -14,7 +12,9 @@ import Recent from "./components/Recent";
 import MostPopular from "./components/MostPopular";
 import MostCommented from "./components/MostCommented";
 import PostArticle from './components/PostArticle'
+// import Emoji from './components/Emoji'
 import * as api from "./api";
+import NotFound from "./components/NotFound";
 
 
 class App extends Component {
@@ -31,31 +31,37 @@ class App extends Component {
         <section>
           {this.state.user.username ? <h2>
               {`Hi ${this.state.user.name.split(" ")[0]}! `}
-        </h2> : <span style={{ fontSize: "25px" }}>🙋 Welcome!</span>
-            } 
+            </h2> : <span style={{ fontSize: "25px" }}>
+              <span role="img" aria-label="sheep">
+                🙋
+              </span>
+               Welcome!
+            </span>}
           {this.state.user.username ? <button
               onClick={() => this.setState({ user: {} })}
             >
+              {" "}
               Log Out
             </button> : ""}
           <br />
           <Link className="sideBarLinks" to="/postArticle">
-            &#x2795; Post an article
+          <span role="img" aria-label="sheep">&#x2795;</span> Post an article
           </Link> <br />
           <Link className="sideBarLinks" to="/articles/yours">
-            ✍ Your Articles
+          <span role="img" aria-label="sheep">✍</span> Your Articles
           </Link> <br />
           <Link className="sideBarLinks" to="/articles/recent">
-            &#9203; Recent Articles
+          <span role="img" aria-label="sheep">&#9203; </span>Recent Articles
           </Link> <br />
           <Link className="sideBarLinks" to="/articles/popular">
-            😍 Top 10 Popular Articles
-          </Link> <br/>
+          <span role="img" aria-label="sheep">😍</span> Top 10 Popular Articles
+          </Link> <br />
           <Link className="sideBarLinks" to="/articles/commented">
-            🔥 Top 10 Commented Articles
+          <span role="img" aria-label="sheep">🔥 </span>
+            Top 10 Commented Articles
           </Link>
         </section>
-        <Login user={this.state.user} login={this.login} guest={this.state.guest}> 
+        <Login user={this.state.user} login={this.login} guest={this.state.guest}>
           <Router className="main">
             <Home path="/" />
             <Articles path="/topics/:topic" />
@@ -65,8 +71,8 @@ class App extends Component {
             <MostCommented user={this.state.user} path="/articles/commented" />
             <Article user={this.state.user} path="/articles/:article_id" />
             <Users path="/users" />
-            <User path="/users/:user_id" />
             <PostArticle user={this.state.user} path="/postArticle" />
+            <NotFound default />
           </Router>
         </Login>
         <footer> NC-NEWS Front End Project By Mahsa </footer>

@@ -16,11 +16,11 @@ class Login extends Component {
             <input className="textInputs" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
             <button type="submit">Login</button>
             {this.state.inputEmpty ? <h3 style={{ color: "white" }}>
-                ⛔ Can't login without username!⛔
+            <span role="img" aria-label="sheep">⛔</span> Can't login without username!
               </h3> : ""}
             {this.props.guest ? <h3 style={{ color: "white" }}>
                 {" "}
-                🚫 You entered Wrong Username!🚫
+            <span role="img" aria-label="sheep">🚫</span> You entered Wrong Username!
               </h3> : ""}
           </form>
         </div>
@@ -42,6 +42,8 @@ class Login extends Component {
   };
 }
 
-Login.propTypes = {};
+Login.propTypes = {
+  user:PropTypes.object.isRequired
+};
 
 export default Login;

@@ -12,11 +12,11 @@ class Vote extends Component {
     const { voteVariable } = this.state;
     return <div>
         <button className="updown" onClick={() => this.voteChanger(id, "up")} disabled={voteVariable === 1}>
-          👍
+        <span role="img" aria-label="sheep">👍</span>
         </button>
         <span> Votes: {votes + voteVariable} </span>
         <button className="updown" onClick={() => this.voteChanger(id, "down")} disabled={voteVariable === -1}>
-          👎
+        <span role="img" aria-label="sheep">👎</span>
         </button>
       </div>;
   }
@@ -43,5 +43,8 @@ class Vote extends Component {
 }
 Vote.propTypes = {
   // voteVariable: PropTypes.number
+  votes:PropTypes.number,
+  id:PropTypes.string.isRequired,
+  comment_count:PropTypes.number
 };
 export default Vote;

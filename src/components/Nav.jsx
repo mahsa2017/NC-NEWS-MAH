@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import "../App.css";
 import './Nav.css';
-import Home from './Home';
-import Users from './Users';
 
 import * as api from '../api';
 
@@ -40,8 +37,5 @@ class Nav extends Component {
   }
 }
 
-Nav.propTypes = {
-
-};
 
 export default Nav;

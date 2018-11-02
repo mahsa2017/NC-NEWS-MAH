@@ -18,7 +18,7 @@ class Comments extends Component {
         </h3>
         <form action="" onSubmit={this.handleSubmit}>
           <textarea className="textInputs" name="" id="" cols="30" rows="10" style={{ width: "876px", height: "59px" }} placeholder="what do you think? ..." onChange={this.handleChange} value={this.state.body} /> <br />
-          {bodyEmpty ? <h3> ❌ can't post an empty comment ❌ </h3> : ""}
+        {bodyEmpty ? <h3> <span role="img" aria-label="sheep">❌ </span>can't post an empty comment  </h3> : ""}
           <button type="submit">send</button>
         </form>
         {comments.map(comment => {
@@ -76,7 +76,8 @@ class Comments extends Component {
 }
 
 Comments.propTypes = {
-
+user:PropTypes.object.isRequired,
+id:PropTypes.string.isRequired
 };
 
 export default Comments;

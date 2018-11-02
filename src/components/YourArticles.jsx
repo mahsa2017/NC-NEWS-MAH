@@ -32,7 +32,7 @@ class YourArticles extends Component {
 }
 
 YourArticles.propTypes = {
-  user: PropTypes.string
+  user: PropTypes.object
 };
 
 export default YourArticles;

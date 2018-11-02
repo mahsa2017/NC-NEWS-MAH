@@ -46,7 +46,7 @@ class MostCommented extends Component {
 }
 
 MostCommented.propTypes = {
-  user: PropTypes.string
+  user: PropTypes.object
 };
 
 export default MostCommented;

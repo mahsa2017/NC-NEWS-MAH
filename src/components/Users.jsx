@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import * as api from '../api'
 import  './Users.css';
 
@@ -36,9 +35,5 @@ class Users extends Component {
     })
   }
 }
-
-Users.propTypes = {
-
-};
 
 export default Users;
