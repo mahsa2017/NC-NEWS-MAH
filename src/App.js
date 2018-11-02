@@ -73,6 +73,7 @@ class App extends Component {
             <Users path="/users" />
             <PostArticle user={this.state.user} path="/postArticle" />
             <NotFound default />
+            <NotFound path="/error" />
           </Router>
         </Login>
         <footer> NC-NEWS Front End Project By Mahsa </footer>

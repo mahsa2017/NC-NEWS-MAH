@@ -6,14 +6,14 @@ import ArticleCard from './ArticleCard'
 class MostCommented extends Component {
   state = { articles: [], isLoading: true };
   render() {
-    const { articles } = this.state;
-    return this.state.isLoading ? (
+    const { articles,isLoading } = this.state;
+    return isLoading ? (
       <div className="loader" />
     ) : (
       <main>
         {/* MostCommented ARTICLES */}
           <h1>Most Commented Articles</h1>
-        <p>{this.state.articles.length} articles available </p>
+        <p>{articles.length} articles available </p>
         {articles.map(article => {
           return (
             <ArticleCard key={article._id} article={article} id={article._id} />

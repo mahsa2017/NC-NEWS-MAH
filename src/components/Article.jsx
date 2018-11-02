@@ -13,8 +13,9 @@ class Article extends Component {
     msg: ""
   }
   render() {
-    const { isLoading, article, msg } = this.state;
+    const { isLoading, article, msg} = this.state;
     const { article_id, user } = this.props;
+  
     return isLoading ? <div className="loader" /> : <div>
       {/* Single Article */}
       {article._id && <ArticleCard article={article} body={article.body} id={article_id} />}
@@ -38,11 +39,13 @@ class Article extends Component {
 
   fetchArticleById = () => {
     const { article_id } = this.props;
-    api.getArticleById(article_id)
+    api
+      .getArticleById(article_id)
       .then(article => {
-        this.setState({
-          article, isLoading: false
-        });
+        this.setState({ article, isLoading: false });
+      })
+      .catch(err => {
+        navigate("/error", { replace: true, state: { code: 404 } });
       });
   }
   removeArticle = (id) => {

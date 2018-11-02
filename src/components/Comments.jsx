@@ -10,8 +10,8 @@ class Comments extends Component {
     bodyEmpty:false
   };
   render() {
-    const {bodyEmpty} = this.state
-    const { comments } = this.state;
+    const { bodyEmpty, comments} = this.state
+    const { user,id } = this.props;
     return <div>
         <h3 style={{ textAlign: "left", marginLeft: "70px" }}>
           What do you think?{" "}
@@ -22,7 +22,7 @@ class Comments extends Component {
           <button type="submit">send</button>
         </form>
         {comments.map(comment => {
-          return <CommentCard key={comment._id} user={this.props.user} id={this.props.id} comment={comment} deleteComment={this.deleteComment} />;
+          return <CommentCard key={comment._id} user={user} id={id} comment={comment} deleteComment={this.deleteComment} />;
         })}
       </div>;
   }

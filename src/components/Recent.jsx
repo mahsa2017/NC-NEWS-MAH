@@ -30,10 +30,9 @@ class Recent extends Component {
     api.getArticles()
       .then(articles => {
         const thisyear = new Date().getFullYear();
-        // console.log(this.year,"thisyear!!!")
         const Recent = articles.filter(article =>
         article.created_at
-          .slice(0, 4) == thisyear).sort((a,b)=>a-b);
+          .slice(0, 4) == thisyear);
         this.setState({ articles: Recent, isLoading:false });
       })
   };
