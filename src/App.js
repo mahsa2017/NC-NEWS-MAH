@@ -21,7 +21,7 @@ class App extends Component {
     guest:false
   };
   render() {
-    const {user} = this.state;
+    const {user,guest} = this.state;
     return <div className="App">
         <header>
           <h1>N o r t h C o d e r s N e w s </h1>
@@ -30,7 +30,7 @@ class App extends Component {
         <section>
           {user.username ? <h2>
               {`Hi ${user.name.split(" ")[0]}! `}
-            </h2> : <span style={{ fontSize: "25px" }}>
+            </h2> : <span id="wel">
                Welcome!
             </span>}
           {user.username ? <button
@@ -40,17 +40,17 @@ class App extends Component {
           <br />
             <SideBarLinks />
         </section>
-        <Login user={this.state.user} login={this.login} guest={this.state.guest}>
+        <Login user={user} login={this.login} guest={guest}>
           <Router className="main">
             <Articles path="/" />
             <Articles path="/topics/:topic" />
-            <YourArticles user={this.state.user} path="/articles/yours" />
-            <Recent user={this.state.user} path="/articles/recent" />
-            <MostPopular user={this.state.user} path="/articles/popular" />
-            <MostCommented user={this.state.user} path="/articles/commented" />
-            <Article user={this.state.user} path="/articles/:article_id" />
+            <YourArticles user={user} path="/articles/yours" />
+            <Recent user={user} path="/articles/recent" />
+            <MostPopular user={user} path="/articles/popular" />
+            <MostCommented user={user} path="/articles/commented" />
+            <Article user={user} path="/articles/:article_id" />
             <Users path="/users" />
-            <PostArticle user={this.state.user} path="/postArticle" />
+            <PostArticle user={user} path="/postArticle" />
             <NotFound default />
             <NotFound path="/error" />
           </Router>
