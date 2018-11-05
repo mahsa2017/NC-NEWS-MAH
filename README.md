@@ -35,11 +35,11 @@ Northcoders News
 
 ## Deployment
 
-Live app (https://nc-news-mah.netlify.com/)
-[github] (https://github.com/mahsa2017/NC-NEWS-MAH)
+Live app(https://nc-news-mah.netlify.com/)
+[github](https://github.com/mahsa2017/NC-NEWS-MAH)
 
-Back End (https://nc-news-api-project.herokuapp.com/)
-[github] (https://github.com/mahsa2017/BE2-northcoders-news)
+Back End(https://nc-news-api-project.herokuapp.com/)
+[github](https://github.com/mahsa2017/BE2-northcoders-news)
 
 ## Built With
 
