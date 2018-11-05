@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import * as api from '../api';
 import ArticleCard from './ArticleCard'
 
-
 class Recent extends Component {
   state = { articles: [],isLoading:true };
   render() {

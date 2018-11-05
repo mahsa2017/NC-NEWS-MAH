@@ -23,8 +23,6 @@ class PostArticle extends Component {
           </select>
           <label htmlFor="title">Title: </label>
           <input className="textInputs" type="text" name="title" id="title" onChange={this.handleChange} />
-          {/* <br/>
-          <label htmlFor="body">Body: </label> */}
           <br />
           <textarea className="textInputs" name="" id="body" cols="30" style={{ width: "521px", height: "182px" }} rows="10" onChange={this.handleChange} placeholder="write your article ..." />
           <button type="submit">Add Article</button>

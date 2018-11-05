@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Router, Link } from "@reach/router";
-import Home from "./components/Home";
+import { Router} from "@reach/router";
 import Nav from "./components/Nav";
 import Users from "./components/Users";
 import Article from "./components/Article";
@@ -12,10 +11,9 @@ import Recent from "./components/Recent";
 import MostPopular from "./components/MostPopular";
 import MostCommented from "./components/MostCommented";
 import PostArticle from './components/PostArticle'
-// import Emoji from './components/Emoji'
+import SideBarLinks from "./components/SideBarLinks";
 import * as api from "./api";
 import NotFound from "./components/NotFound";
-
 
 class App extends Component {
   state = {
@@ -23,47 +21,28 @@ class App extends Component {
     guest:false
   };
   render() {
+    const {user} = this.state;
     return <div className="App">
         <header>
           <h1>N o r t h C o d e r s N e w s </h1>
         </header>
         <Nav />
         <section>
-          {this.state.user.username ? <h2>
-              {`Hi ${this.state.user.name.split(" ")[0]}! `}
+          {user.username ? <h2>
+              {`Hi ${user.name.split(" ")[0]}! `}
             </h2> : <span style={{ fontSize: "25px" }}>
-              <span role="img" aria-label="sheep">
-                🙋
-              </span>
                Welcome!
             </span>}
-          {this.state.user.username ? <button
-              onClick={() => this.setState({ user: {} })}
-            >
-              {" "}
-              Log Out
+          {user.username ? <button
+              onClick={() => this.logout()}
+            >Log Out
             </button> : ""}
           <br />
-          <Link className="sideBarLinks" to="/postArticle">
-          <span role="img" aria-label="sheep">&#x2795;</span> Post an article
-          </Link> <br />
-          <Link className="sideBarLinks" to="/articles/yours">
-          <span role="img" aria-label="sheep">✍</span> Your Articles
-          </Link> <br />
-          <Link className="sideBarLinks" to="/articles/recent">
-          <span role="img" aria-label="sheep">&#9203; </span>Recent Articles
-          </Link> <br />
-          <Link className="sideBarLinks" to="/articles/popular">
-          <span role="img" aria-label="sheep">😍</span> Top 10 Popular Articles
-          </Link> <br />
-          <Link className="sideBarLinks" to="/articles/commented">
-          <span role="img" aria-label="sheep">🔥 </span>
-            Top 10 Commented Articles
-          </Link>
+            <SideBarLinks />
         </section>
         <Login user={this.state.user} login={this.login} guest={this.state.guest}>
           <Router className="main">
-            <Home path="/" />
+            <Articles path="/" />
             <Articles path="/topics/:topic" />
             <YourArticles user={this.state.user} path="/articles/yours" />
             <Recent user={this.state.user} path="/articles/recent" />
@@ -90,6 +69,11 @@ class App extends Component {
       this.setState({guest:true}) 
     })
   };
+  logout = () => {
+    this.setState({
+      user:{}
+    })
+  }
 }
 
 export default App;
