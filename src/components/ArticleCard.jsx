@@ -4,6 +4,7 @@ import { Link } from "@reach/router";
 import "./ArticleCard.css";
 import Vote from "./Vote";
 import Moment from "react-moment";
+import { imgs } from '../utils';
 
 const ArticleCard = props => {
   const {
@@ -17,14 +18,12 @@ const ArticleCard = props => {
     comment_count
   } = props.article;
   // console.log(created_by, '<<<<');
+
   return <div className="article-card-container">
       <span>
         <h2>{title}</h2>
       </span>
-      {created_by.username === "jessjelly" && <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src="https://www.ziglar.com/wp-content/uploads/2016/09/michelle-prince-profile-img.png" alt="" />}
-      {created_by.username === "tickle122" && <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src="https://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture-300x300.jpg" alt="" />}
-      {created_by.username === "happyamy2016" && <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQivtQQNdntsxANTvTI4RPoWm-v7YK6X9ftvjsXaRFgiAPiqcgQ" alt="" />}
-    {created_by.username === "cooljmessy" && <img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src="https://twistedsifter.files.wordpress.com/2012/09/trippy-profile-pic-portrait-head-on-and-from-side-angle.jpg?w=800&h=700" alt="" />}
+      <img className="profileImg" src={imgs(created_by.username)} alt="img" />
       <i>posted by: {created_by.username}</i>
       <Moment fromNow>{created_at}</Moment>
       <Link className="articleCardLinks" id="artCTop" to={`/topics/${belongs_to}`}>
