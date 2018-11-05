@@ -6,14 +6,11 @@ import Users from "./components/Users";
 import Article from "./components/Article";
 import Articles from "./components/Articles";
 import Login from "./components/Login";
-import YourArticles from "./components/YourArticles";
-import Recent from "./components/Recent";
-import MostPopular from "./components/MostPopular";
-import MostCommented from "./components/MostCommented";
 import PostArticle from './components/PostArticle'
 import SideBarLinks from "./components/SideBarLinks";
 import * as api from "./api";
 import NotFound from "./components/NotFound";
+import ArticleStats from './components/ArticleStats'
 
 class App extends Component {
   state = {
@@ -44,13 +41,10 @@ class App extends Component {
           <Router className="main">
             <Articles path="/" />
             <Articles path="/topics/:topic" />
-            <YourArticles user={user} path="/articles/yours" />
-            <Recent user={user} path="/articles/recent" />
-            <MostPopular user={user} path="/articles/popular" />
-            <MostCommented user={user} path="/articles/commented" />
             <Article user={user} path="/articles/:article_id" />
-            <Users path="/users" />
+            <ArticleStats user={user} path="/toparticles/:stat" />
             <PostArticle user={user} path="/postArticle" />
+            <Users path="/users" />
             <NotFound default />
             <NotFound path="/error" />
           </Router>
