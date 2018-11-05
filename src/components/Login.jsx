@@ -14,13 +14,12 @@ class Login extends Component {
     return <div className="main">
         <div id="login">
           <form action="" onSubmit={this.handleSubmit} className="inputButton">
-            <input className="textInputs" placeholder="jessjelly" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
+            <input className="textInputLogin" placeholder="jessjelly" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
             <button type="submit">Login</button>
             {inputEmpty ? <h3 style={{ color: "white" }}>
             <span role="img" aria-label="sheep">⛔</span> Can't login without username!
               </h3> : ""}
             {guest ? <h3 style={{ color: "white" }}>
-                {" "}
             <span role="img" aria-label="sheep">🚫</span> You entered Wrong Username!
               </h3> : ""}
           </form>

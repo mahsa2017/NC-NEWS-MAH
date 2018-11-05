@@ -89,10 +89,6 @@ font-size: large;
 .article-card-container2{
     width:50%;
   }
-  .textInputs{
-    width:50%;
-  }
-
 }
 @media screen and (max-width: 500px) {
   header h1{
@@ -104,9 +100,6 @@ font-size: small;
 }
 .article-card-container2{
     width:30%;
-  }
-  .textInputs{
-    width:50%;
   }
 .sideBarLinks{
   font-size:12px;

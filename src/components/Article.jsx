@@ -5,7 +5,6 @@ import ArticleCard from './ArticleCard'
 import Comments from './Comments';
 import { navigate } from '@reach/router'
 
-
 class Article extends Component {
   state = {
     article: {},
