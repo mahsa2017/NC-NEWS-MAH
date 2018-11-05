@@ -14,11 +14,32 @@ Northcoders News
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### Getting Started
+
+1. you need to fork then Clone this repo:
+
+   ```
+   git clone https://github.com/mahsa2017/NC-NEWS-MAH.git
+   ```
+
+2. cd into the repo and install the dependencies:
+
+   ```
+   npm i
+   ```
+3. run app with command below:
+
+   ```
+   npm start
+   ```
 
 ## Deployment
 
 Live app (https://nc-news-mah.netlify.com/)
+[github] (https://github.com/mahsa2017/NC-NEWS-MAH)
+
+Back End (https://nc-news-api-project.herokuapp.com/)
+[github] (https://github.com/mahsa2017/BE2-northcoders-news)
 
 ## Built With
 
