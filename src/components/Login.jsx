@@ -17,10 +17,10 @@ class Login extends Component {
             <input className="textInputLogin" placeholder="jessjelly" type="text" name="username" id="username" onChange={this.handleChange} /> <br />
             <button type="submit">Login</button>
             {inputEmpty ? <h3 style={{ color: "white" }}>
-            <span role="img" aria-label="sheep">⛔</span> Can't login without username!
+           Can't login without username!
               </h3> : ""}
             {guest ? <h3 style={{ color: "white" }}>
-            <span role="img" aria-label="sheep">🚫</span> You entered Wrong Username!
+           You entered Wrong Username!
               </h3> : ""}
           </form>
         </div>
@@ -28,6 +28,7 @@ class Login extends Component {
   }
   handleChange = e => {
     this.setState({
+      inputEmpty:false,
       username: e.target.value
     });
   };
