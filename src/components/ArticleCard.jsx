@@ -17,7 +17,6 @@ const ArticleCard = props => {
     body,
     comment_count
   } = props.article;
-  // console.log(created_by, '<<<<');
 
   return <div className="article-card-container">
       <span>

@@ -1,0 +1,16 @@
+@media screen and (max-width: 700px) {
+  h1{
+    font-size:150%;
+    margin-top:40px;
+  }
+  .sideBarLinks{
+  font-size:16px;
+}
+.article-card-container2{
+    width:50%;
+  }
+  .textInputs{
+    width:300px;
+  }
+
+}

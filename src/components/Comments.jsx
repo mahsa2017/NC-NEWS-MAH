@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api'
 import CommentCard from './CommentCard';
+import './Comments.css';
 
 class Comments extends Component {
   state = {

@@ -16,16 +16,17 @@ class Article extends Component {
     const { isLoading, article, msg} = this.state;
     const { article_id, user } = this.props;
   
-    return isLoading ? <div className="loader" /> : <div>
-      {/* Single Article */}
-      {article._id && <ArticleCard article={article} body={article.body} id={article_id} />}
-      {user.username === article.created_by.username ?
-        <button onClick={() => this.removeArticle(article._id)}>
-          Delete
-      </button> : ""}
-      {article._id && <Comments user={user} id={article_id} />}
-      {msg !== "" && <h1>{msg}</h1>}
-    </div>;
+    return isLoading ? <div className="loader" /> : <div className="article-card-container2">
+        {/* Single Article */}
+        {article._id && <ArticleCard article={article} body={article.body} id={article_id} />}
+        {user.username === article.created_by.username ? <button
+            onClick={() => this.removeArticle(article._id)}
+          >
+            Delete
+          </button> : ""}
+        {article._id && <Comments user={user} id={article_id} />}
+        {msg !== "" && <h1>{msg}</h1>}
+      </div>;
   }
   componentDidMount() {
     this.fetchArticleById()

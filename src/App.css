@@ -81,13 +81,35 @@ font-size: large;
 @media screen and (max-width: 700px) {
   h1{
     font-size:150%;
+    margin-top:40px;
   }
+  .sideBarLinks{
+  font-size:16px;
+}
+.article-card-container2{
+    width:50%;
+  }
+  .textInputs{
+    width:50%;
+  }
+
 }
 @media screen and (max-width: 500px) {
   h1{
     font-size:28px;
+    margin-top:50px;
   }
   nav a {
 font-size: small;
+}
+.article-card-container2{
+    width:30%;
+  }
+  .textInputs{
+    width:50%;
+  }
+.sideBarLinks{
+  font-size:12px;
+  color:black
 }
 }
