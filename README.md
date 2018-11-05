@@ -2,11 +2,11 @@
 
 Northcoders News is a social news aggregation, web content rating, and discussion website. Think something along the lines of [Reddit](https://www.reddit.com/).
 
-### Northcoders News has articles which are divided into topics.
-### Each article has user curated ratings and can be up or down voted using the API.
-### Users can also add comments about an article.
-### Comments can also be up or down voted.
-### A user can add comments and remove any comments which they have added.
+ Northcoders News has articles which are divided into topics.
+ Each article has user curated ratings and can be up or down voted using the API.
+ Users can also add comments about an article.
+ Comments can also be up or down voted.
+ A user can add comments and remove any comments which they have added.
 
 # Project Title
 
@@ -15,18 +15,6 @@ Northcoders News
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-[react]
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-
-
 
 ## Deployment
 
@@ -42,5 +30,6 @@ Live app (https://nc-news-mah.netlify.com/)
 
 ## Author
 
-* **Mahsa Pour Mahjour** - *Initial work* - [PurpleBooth](https://github.com/mahsa2017)
+* **Mahsa Pour Mahjour** 
+
 
