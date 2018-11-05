@@ -14,8 +14,6 @@ Northcoders News
 
 ## Getting Started
 
-### Getting Started
-
 1. you need to fork then Clone this repo:
 
    ```
