@@ -19,7 +19,7 @@ class Login extends Component {
             {inputEmpty ? <h3 style={{ color: "white" }}>
            Can't login without username!
               </h3> : ""}
-            {guest ? <h3 style={{ color: "white" }}>
+            {!inputEmpty && guest ? <h3 style={{ color: "white" }}>
            You entered Wrong Username!
               </h3> : ""}
           </form>

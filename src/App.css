@@ -14,12 +14,13 @@
 }
 
 header {
-  background: #48d1cc;
+  background: #5ec5be;
   border: #67aaf9;
   grid-area: header;
-  font-family: "Monoton", cursive;
+  font-family: 'Abril Fatface', cursive;
   font-size: 150%;
   padding-bottom: 15px;
+  color:#b8f3ff;
 }
 
 nav {
@@ -87,22 +88,34 @@ font-size: large;
   font-size:16px;
 }
 .article-card-container2{
-    width:50%;
+    width:60%;
   }
 }
 @media screen and (max-width: 500px) {
   header h1{
-    font-size:20px;
+    font-size:25px;
     margin-top:60px;
   }
   nav a {
 font-size: small;
 }
 .article-card-container2{
-    width:30%;
+    width:80px;
   }
 .sideBarLinks{
   font-size:12px;
   color:black
 }
+.App{
+  text-align: left;
+}
+#login{
+  align-items:left;
+}
+/* section{
+  display:none;
+} */
+/* nav{
+  width:50%;
+} */
 }
